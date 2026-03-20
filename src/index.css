@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    --primary: 180 51% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 40 10% 93%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 216 76% 68%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 180 51% 36%;
+
+    --radius: 0.75rem;
+
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 100% 50%;
+    --warning-foreground: 0 0% 20%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .screen-container {
+    @apply min-h-screen max-w-md mx-auto px-5 pb-24 pt-6;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-2xl p-5 shadow-[0_2px_12px_rgba(0,0,0,0.06)];
+  }
+
+  .card-elevated-lg {
+    @apply bg-card rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)];
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold py-4 px-6 rounded-2xl w-full text-base transition-all duration-200 active:scale-[0.97];
+  }
+
+  .btn-primary:hover {
+    @apply shadow-[0_4px_16px_rgba(46,139,139,0.3)];
+  }
+
+  .badge-active {
+    @apply inline-flex items-center gap-1.5 bg-[hsl(var(--success)/.12)] text-[hsl(var(--success))] text-xs font-semibold px-3 py-1 rounded-full;
+  }
+
+  .badge-monitoring {
+    @apply inline-flex items-center gap-1.5 bg-[hsl(var(--warning)/.12)] text-[hsl(var(--warning))] text-xs font-semibold px-3 py-1 rounded-full;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3;
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-slide-up-delay-1 {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  }
+
+  .animate-slide-up-delay-2 {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+  }
+
+  .animate-slide-up-delay-3 {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+  }
+
+  .animate-fade-in-slow {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
